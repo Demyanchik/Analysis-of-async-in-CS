@@ -2,13 +2,13 @@
 using System.Threading;
 using System.Threading.Tasks;
 
-ThreadId("");
+ThreadId();
 var tomTask = PrintNameAsync("Tom");
-ThreadId("");
+ThreadId();
 var bobTask = PrintNameAsync("Bob");
-ThreadId("");
+ThreadId();
 var samTask = PrintNameAsync("Sam");
-ThreadId("");
+ThreadId();
 
 await tomTask;
 ThreadId("после await 1 ");
@@ -17,7 +17,7 @@ ThreadId("после await 2 ");
 await samTask;
 ThreadId("после await 3 ");
 
-ThreadId("");
+ThreadId();
 
 // определение асинхронного метода
 async Task PrintNameAsync(string name)
@@ -31,7 +31,7 @@ async Task PrintNameAsync(string name)
 /// <summary>
 /// Выводим Id потока, в котором вызван этот метод
 /// </summary>
-static void ThreadId(string text)
+static void ThreadId(string text = "")
 {
     Console.WriteLine(text + "Current thread id: " + Thread.CurrentThread.ManagedThreadId);
 }
